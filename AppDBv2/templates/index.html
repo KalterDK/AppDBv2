@@ -24,26 +24,45 @@
 <p><br/></p>
 <div class="container">
     <h1>Data Table</h1>
+
+    <form>
+        {% csrf_token %}
+        {% for hidden in nform.hidden_fields %}
+        {{ hidden }}
+        {% endfor %}
+
+        {% render_field form.user placeholder=form.user.label %}
+
+        {% render_field form.action placeholder=form.action.label %}
+
+        {% render_field form.time placeholder=form.time.label %}
+
+        <input type="submit" value="Submit" class="btn center-block"/>
+    </form>
+
+    {{ table }}
+
+    <!--{% render_field form.users placeholder="User" %}-->
     <table id="table_id" class="table table-striped table-bordered table-hover">
-    <thead>
-            <tr>
-                <th>User</th>
-                <th>Action</th>
-                <th>Time</th>
-                <th>File</th>
-            </tr>
+        <thead>
+        <tr>
+            <th>User</th>
+            <th>Action</th>
+            <th>Time</th>
+            <th>File</th>
+        </tr>
         </thead>
-    <tbody>
-       {% for act in act %}
-    <tr>
-        <td>{{ act.user }}</td>
-        <td>{{ act.type }}</td>
-        <td>{{ act.timestamp }}</td>
-        <td>{{ act.file }}</td>
-    </tr>
-    {% endfor %}
+        <tbody>
+        {% for act in table %}
+        <tr>
+            <td>{{ act.user }}</td>
+            <td>{{ act.type }}</td>
+            <td>{{ act.timestamp }}</td>
+            <td>{{ act.file }}</td>
+        </tr>
+        {% endfor %}
         </tbody>
-</table>
+    </table>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -54,6 +73,9 @@
 <script src="/static/js/dataTables.bootstrap.min.js"></script>
 <script>
 $('#table_id').dataTable();
+
+
+
 </script>
 </body>
 </html>

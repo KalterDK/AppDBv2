@@ -2,9 +2,10 @@ from django import forms
 from .models import *
 
 
-class DataTableForm (forms.ModelForm):
-    user = forms.ModelChoiceField(queryset=OcActivity.objects.all())
+class DataTableForm (forms.Form):
+    user = forms.CharField(widget=forms.TextInput())
+    action = forms.CharField(widget=forms.TextInput())
+    time = forms.CharField(widget=forms.TextInput())
 
     class Meta:
-        model = OcActivity
-        fields = ['user']
+        fields = ['user', 'action', 'time']

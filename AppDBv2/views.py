@@ -15,12 +15,19 @@ def render_tamplate(tpl, dt, request):
     return render(request, tpl, dct)
 
 
+# def home(request):
+#     activity = OcActivity.objects.all()
+#     form = DataTableForm()
+#     return render_tamplate('index.html', {'act': activity, 'form': form}, request)
+
+
 def home(request):
-    activity = OcActivity.objects.all()
     form = DataTableForm()
-    return render_tamplate('index.html', {'act': activity, 'form': form}, request)
+    table = OcActivity.objects.filter(user='adaj', type='file_changed', timestamp='1478596714')
+    return render_to_response('index.html', {'form': form, 'table': table})
 
 
-def data_list(request):
-    users = OcActivity.objects.order_by('user')
-    return render_to_response('index.html', {'users': users})
+
+# def home(request):
+#     users = OcActivity.objects.order_by('user')
+#     return render_to_response('index.html', {'users': users})
