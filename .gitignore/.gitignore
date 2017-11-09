@@ -1,0 +1,6 @@
+*.pyc
+.DS_Store
+AppDBv2/DS_Store
+.idea/*
+__pycache__
+AppDBv2/__pycache__
