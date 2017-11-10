@@ -1,7 +1,6 @@
 from django.shortcuts import render, render_to_response
 from forms import *
 from models import *
-import datetime
 
 
 def render_tamplate(tpl, dt, request):
