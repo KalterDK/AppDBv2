@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response
 from forms import *
 from models import *
+import datetime
 
 
 def render_tamplate(tpl, dt, request):
@@ -21,8 +22,11 @@ def home(request):
         if form.is_valid():
             u = form.cleaned_data['user']
             a = form.cleaned_data['action']
-            t = form.cleaned_data['time']
-            table = OcActivity.objects.filter(user=u, type=a, timestamp=t)
+            dtf_1 = form.cleaned_data['time_1']
+            dtf_2 = form.cleaned_data['time_2']
+            t_1 = int(dtf_1.strftime('%s'))
+            t_2 = int(dtf_2.strftime('%s'))
+            table = OcActivity.objects.filter(user=u, type=a, timestamp__range=[t_1, t_2])
             return render_tamplate('index.html', {'form': form, 'table': table}, request)
         else:
             return render_tamplate('index.html', {'form': form}, request)
