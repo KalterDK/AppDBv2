@@ -1,6 +1,6 @@
 from django.shortcuts import render, render_to_response
-from .forms import *
-from .models import *
+from forms import *
+from models import *
 
 
 def render_tamplate(tpl, dt, request):
@@ -15,19 +15,18 @@ def render_tamplate(tpl, dt, request):
     return render(request, tpl, dct)
 
 
-# def home(request):
-#     activity = OcActivity.objects.all()
-#     form = DataTableForm()
-#     return render_tamplate('index.html', {'act': activity, 'form': form}, request)
-
-
 def home(request):
-    form = DataTableForm()
-    table = OcActivity.objects.filter(user='adaj', type='file_changed', timestamp='1478596714')
-    return render_to_response('index.html', {'form': form, 'table': table})
+    if request.method == "POST":
+        form = DataTableForm(request.POST)
+        if form.is_valid():
+            u = form.cleaned_data['user']
+            a = form.cleaned_data['action']
+            t = form.cleaned_data['time']
+            table = OcActivity.objects.filter(user=u, type=a, timestamp=t)
+            return render_tamplate('index.html', {'form': form, 'table': table}, request)
+        else:
+            return render_tamplate('index.html', {'form': form}, request)
+    else:
+        form = DataTableForm()
+        return render_tamplate('index.html', {'form': form}, request)
 
-
-
-# def home(request):
-#     users = OcActivity.objects.order_by('user')
-#     return render_to_response('index.html', {'users': users})
