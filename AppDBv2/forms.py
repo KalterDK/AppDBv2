@@ -1,10 +1,10 @@
 from django import forms
-# from models import *
+from models import *
 
 
 class DataTableForm (forms.Form):
     user = forms.CharField(widget=forms.TextInput())
-    action = forms.CharField(widget=forms.TextInput())
+    action = forms.ModelChoiceField(queryset=Actions.objects.all())
     time_1 = forms.DateTimeField(widget=forms.DateTimeInput())
     time_2 = forms.DateTimeField(widget=forms.DateTimeInput())
 

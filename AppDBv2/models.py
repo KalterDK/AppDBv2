@@ -137,7 +137,8 @@ class OcActivity(models.Model):
         return self.user
 
 
-# class DataTable(models.Model):
-#     user = models.CharField(max_length=30, help_text="User")
-#     action = models.CharField(max_length=30, help_text="Action Type")
-#     time = models.CharField(max_length=30, help_text="Time")
+class Actions(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
