@@ -1,0 +1,5 @@
+Database example in ./Files/owncloud.sql
+
+Request examples:
+1. adaj, file_changed, 2016-06-08, 2016-11-10
+2. ikam, file_created, 2016-10-08, 2016-11-10
