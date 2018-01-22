@@ -15,7 +15,7 @@ def render_tamplate(tpl, dt, request):
     return render(request, tpl, dct)
 
 
-def home(request):
+def page_1(request):
     if request.method == "POST":
         form = DataTableForm(request.POST)
         if form.is_valid():
@@ -26,10 +26,27 @@ def home(request):
             t_1 = int(dtf_1.strftime('%s'))
             t_2 = int(dtf_2.strftime('%s'))
             table = OcActivity.objects.filter(user=u, type=a, timestamp__range=[t_1, t_2])
-            return render_tamplate('index.html', {'form': form, 'table': table}, request)
+            return render_tamplate('page_1.html', {'form': form, 'table': table}, request)
         else:
-            return render_tamplate('index.html', {'form': form}, request)
+            return render_tamplate('page_1.html', {'form': form}, request)
     else:
         form = DataTableForm()
-        return render_tamplate('index.html', {'form': form}, request)
+        return render_tamplate('page_1.html', {'form': form}, request)
 
+
+def page_2(request):
+    if request.method == "POST":
+        form = DataTableForm2(request.POST)
+        if form.is_valid():
+            f = form.cleaned_data['file']
+            dtf_1 = form.cleaned_data['time_1']
+            dtf_2 = form.cleaned_data['time_2']
+            t_1 = int(dtf_1.strftime('%s'))
+            t_2 = int(dtf_2.strftime('%s'))
+            table = OcActivity.objects.filter(file=f, timestamp__range=[t_1, t_2])
+            return render_tamplate('page_2.html', {'form': form, 'table': table}, request)
+        else:
+            return render_tamplate('page_2.html', {'form': form}, request)
+    else:
+        form = DataTableForm2()
+        return render_tamplate('page_2.html', {'form': form}, request)
