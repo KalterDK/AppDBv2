@@ -1,0 +1,8 @@
+Create container:
+docker build -t kalter/appdbv2 ~/dockyard/django_docker/
+
+Run container:
+docker run --publish=8001:8000 kalter/appdbv2:latest
+
+Run container with local settings.py:
+docker run --name=appdbv2 --publish=8001:8000 --volume=/home/kalter/dockyard/local/local_settings.py:/srv/AppDBv2/AppDBv2/settings.py kalter/appdbv2:latest
