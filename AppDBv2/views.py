@@ -1,5 +1,4 @@
 from django.shortcuts import render, render_to_response
-from django.contrib.auth.decorators import login_required
 from forms import *
 from models import *
 
@@ -16,7 +15,6 @@ def render_tamplate(tpl, dt, request):
     return render(request, tpl, dct)
 
 
-@login_required
 def page_1(request):
     if request.method == "POST":
         form = DataTableForm(request.POST)
@@ -36,7 +34,6 @@ def page_1(request):
         return render_tamplate('page_1.html', {'form': form}, request)
 
 
-@login_required
 def page_2(request):
     if request.method == "POST":
         form = DataTableForm2(request.POST)
