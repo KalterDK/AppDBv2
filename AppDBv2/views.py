@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login
 from django.http import HttpResponseRedirect
 from forms import *
