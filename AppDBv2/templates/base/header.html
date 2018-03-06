@@ -1,17 +1,17 @@
-{% if not request.user.is_authenticated %}
-<ul class="nav nav-pills navbar-right" style="margin: 30px;">
-    <li role="presentation"><a href="/">Login</a></li>
-</ul>
-{% else %}
-<ul class="nav nav-pills navbar-right" style="margin: 30px;">
-    <li role="presentation" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                                aria-haspopup="true" aria-expanded="false">Hello {{ request.user }}<span
-            class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </li>
-    <li role="presentation"><a href="/page_1">Page 1</a></li>
-    <li role="presentation"><a href="/page_2">Page 2</a></li>
-</ul>
-{% endif %}
+<div class="container">
+    {% if not request.user.is_authenticated %}
+    <div style="margin: 200px;"></div>
+    {% else %}
+    <ul class="nav nav-pills navbar-right" style="margin: 30px;">
+        <li role="presentation" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+               aria-expanded="false">Hello {{ request.user}}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </li>
+        <li role="presentation"><a href="/page_1">Page 1</a></li>
+        <li role="presentation"><a href="/page_2">Page 2</a></li>
+    </ul>
+    {% endif %}
+</div>
