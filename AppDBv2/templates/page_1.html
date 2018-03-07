@@ -11,7 +11,7 @@
     <p>search by user | <a href="/page_2"> search by file</a></p><br>
     <div class="row">
         <div class="col-sm-4">
-            <form action="/" method="post" id="form_id">{% csrf_token %}
+            <form action="/page_1" method="post" id="form_id">{% csrf_token %}
                 {% render_field form.user placeholder=form.user.label %}
                 {% render_field form.action placeholder=form.action.label class='form-control' %}
                 {% render_field form.time_1 placeholder="Format: YYYY-M-D HH-MM-SS" %}

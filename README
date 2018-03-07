@@ -1,5 +1,39 @@
-Database example in ./Files/owncloud.sql
+AppDBv2 - application for monitoring file changes (using the example ownCloud database)
 
-Request examples:
-1. adaj, file_changed, 2016-06-08, 2016-11-10
-2. ikam, file_created, 2016-10-08, 2016-11-10
+Example of a database you can find in /Files/owncloud.sql
+Example of a local database configuration file in /Files/local_settings_db.py
+
+Request examples for Page 1 (search by user):
+1.	User:	adaj
+	Action:	file_changed
+	From: 	2016-10-30
+	To:		2016-11-30
+2.	User: 	ikam
+	Action:	file_created
+	From: 	2016-10-30
+	To:		2016-11-30
+3.	User: 	knep
+	Action:	file_changed
+	From: 	2016-10-30
+	To:		2016-11-30
+	
+Request examples for Page 2 (search by file):
+1.	File: 	/EXPO/10.2016/Godziny. EXPO  10.2016.xls
+	From: 	2016-10-30
+	To:		2016-11-30
+2. 	File: 	/JDM Poland/raporty/10.2016/Taras/Raport TOR Październik.ods
+	From: 	2016-10-30
+	To:		2016-11-30
+3. 	File: 	/UDOSTĘPNIONE PRZEZ INNYCH/OBSŁUGA/EXPO/10.2016/Godziny. EXPO  10.2016.xls
+	From: 	2016-10-30
+	To:		2016-11-30
+
+Docker commands to run the application.
+Create container:
+docker build -t user/appdbv2 ~/dockyard/django_docker/
+
+Run container without local database configuration file:
+docker run --publish=8001:8000 user/appdbv2:latest
+
+Run container with local database configuration file:
+docker run --name=appdbv2 --publish=8001:8000 --volume=/home/$USER/dockyard/local/local_settings_db.py:/srv/AppDBv2/AppDBv2/settings_db.py user/appdbv2:latest
