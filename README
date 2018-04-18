@@ -36,10 +36,12 @@ Create container:
 docker build -t kalterdk/appdbv2 ~/<path_to>/AppDBv2/
 
 Run container without local database configuration file:
-docker run --publish=8001:8000 kalterdk/appdbv2:latest
+docker run -d --publish=8001:8000 kalterdk/appdbv2:latest
 
 Run container with local database configuration file:
-docker run --name=appdbv2 --publish=8001:8000 --volume=/<path_to>/local_settings_db.py:/srv/AppDBv2/AppDBv2/settings_db.py kalterdk/appdbv2:latest
+docker run -d --name=appdbv2 --publish=8001:8000 --volume=/<path_to>/local_settings_db.py:/srv/AppDBv2/AppDBv2/settings_db.py kalterdk/appdbv2:latest
+
+In browser run: http://0.0.0.0:8001/
 
 In order to delete all images, use the given command
 docker rmi $(docker images -q)
