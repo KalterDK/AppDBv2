@@ -7,11 +7,11 @@
 FROM ubuntu:14.04
 
 # Set the file maintainer (your name - the file's author)
-MAINTAINER Dmitry Katsel
+MAINTAINER Dzmitry Katsel
 
 # Set env variables used in this Dockerfile (add a unique prefix, such as DOCKYARD)
 #Local directory with project source
-ENV DOCKYARD_SRC=/AppDBv2
+ENV DOCKYARD_SRC=./
 # Directory in container for all project files
 ENV DOCKYARD_SRVHOME=/srv
 # Directory in container for project source files
