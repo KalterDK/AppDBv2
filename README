@@ -29,6 +29,9 @@ Request examples for Page 2 (search by file):
 	To:		2016-11-30
 
 Docker commands to run the application.
+Pull from https://hub.docker.com/r/kalterdk/appdbv2/:
+docker pull kalterdk/appdbv2
+
 Create container:
 docker build -t kalterdk/appdbv2 ~/<path_to>/AppDBv2/
 
