@@ -2,7 +2,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'owncloud',
-        'USER': 'root',
+        'USER': 'local_tester',
         'PASSWORD': 'test',
         'HOST': '127.0.0.1',
         'PORT': '3306',
