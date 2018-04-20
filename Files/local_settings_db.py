@@ -1,3 +1,4 @@
+# For container
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
