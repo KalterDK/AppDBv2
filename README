@@ -49,3 +49,7 @@ docker rmi $(docker images -q)
 
 In order to delete all containers, use the given command
 docker rm $(docker ps -a -q)
+
+SSH into a Container:
+docker ps
+docker exec -it <container name> /bin/bash
