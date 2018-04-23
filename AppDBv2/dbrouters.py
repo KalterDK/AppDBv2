@@ -1,10 +1,13 @@
-from models import OcActivity
+from models import *
 
 
-class MyDBRouter(object):
+class DBRouter(object):
 
     def db_for_read(self, model, **hints):
-        """ reading OcActivity from owncloud """
+        # reading OcActivity from owncloud
         if model == OcActivity:
             return 'owncloud'
+        # reading Actions from default
+        elif model == Actions:
+            return 'default'
         return None

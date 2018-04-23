@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9_q%3u3!v)nk2(x7=!fq&dc_v1v(a%2mr3on#k_j1#fa*vn#4h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'AppDBv2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-DATABASE_ROUTERS = ('AppDBv2.dbrouters.MyDBRouter',)
+DATABASE_ROUTERS = ('AppDBv2.dbrouters.DBRouter',)
 
 DATABASES
 

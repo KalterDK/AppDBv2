@@ -30,5 +30,9 @@ class OcActivity(models.Model):
 class Actions(models.Model):
     name = models.CharField(max_length=100)
 
+    class Meta:
+        managed = True
+        db_table = 'actions'
+
     def __unicode__(self):
         return self.name
