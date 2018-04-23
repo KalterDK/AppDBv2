@@ -4,27 +4,28 @@ Example of a database you can find in /Files/owncloud.sql
 Example of a local database configuration file in /Files/local_settings_db.py
 
 Request examples for Page 1 (search by user):
-1.	User:	adaj
-	Action:	file_changed
-	From: 	2016-10-30
-	To:		2016-11-30
-2.	User: 	ikam
+1.	User:	ikam
 	Action:	file_created
 	From: 	2016-10-30
 	To:		2016-11-30
-3.	User: 	knep
+2.  User: 	alikh
+	Action:	file_created
+	From: 	2016-10-30
+	To:		2016-11-30
+3.	User: 	dzak
 	Action:	file_changed
 	From: 	2016-10-30
 	To:		2016-11-30
+
 	
 Request examples for Page 2 (search by file):
-1.	File: 	/EXPO/10.2016/Godziny. EXPO  10.2016.xls
+1.	File: 	/Skany new/Katalog bez nazwy
 	From: 	2016-10-30
 	To:		2016-11-30
-2. 	File: 	/JDM Poland/raporty/10.2016/Taras/Raport TOR Październik.ods
+2. 	File: 	/Skany new/MARION/FROLOV SERGEI VISA.jpg
 	From: 	2016-10-30
 	To:		2016-11-30
-3. 	File: 	/UDOSTĘPNIONE PRZEZ INNYCH/OBSŁUGA/EXPO/10.2016/Godziny. EXPO  10.2016.xls
+3. 	File: 	/Skany new/MARION/BAHDANOVICH KANSTANTSIN VISA.jpg
 	From: 	2016-10-30
 	To:		2016-11-30
 
