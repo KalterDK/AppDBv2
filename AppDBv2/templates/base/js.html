@@ -4,6 +4,17 @@
 <script src="/static/js/bootstrap.min.js"></script>
 <script src="/static/js/jquery.dataTables.min.js"></script>
 <script src="/static/js/dataTables.bootstrap.min.js"></script>
+<!-- Datapicker -->
+<script src="/static/js/jquery-ui.js"></script>
+<!-- Scripts -->
 <script>
 $('#table_id').dataTable();
+</script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+  } );
+  $( function() {
+    $( "#datepicker-2" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+  } );
 </script>

@@ -1,17 +1,24 @@
 <div class="container">
-    {% if not request.user.is_authenticated %}
-    <div style="margin: 200px;"></div>
-    {% else %}
-    <ul class="nav nav-pills navbar-right" style="margin: 30px;">
-        <li role="presentation" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-               aria-expanded="false">Hello {{ request.user}}<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="/logout">Logout</a></li>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/static/images/logo.png" alt="Logo MESSOR" height="80%" width="80%">
+        </div>
+        <div class="col-md-6">
+            {% if not request.user.is_authenticated %}
+            <div style="margin: 200px;"></div>
+            {% else %}
+            <ul class="nav nav-pills navbar-right" style="margin: 30px;">
+                <li role="presentation" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Hello {{ request.user}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+                <li role="presentation"><a href="/page_1">Search by user</a></li>
+                <li role="presentation"><a href="/page_2">Search by file</a></li>
             </ul>
-        </li>
-        <li role="presentation"><a href="/page_1">Search by user</a></li>
-        <li role="presentation"><a href="/page_2">Search by file</a></li>
-    </ul>
-    {% endif %}
+            {% endif %}
+        </div>
+    </div>
 </div>

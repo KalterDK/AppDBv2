@@ -8,26 +8,32 @@
 <div class="container">
     <h1>SEARCH BY FILE</h1>
     <p><a href="/">search by user </a> | search by file</p><br>
-    <div class="row">
-        <div class="col-sm-4">
-            <form action="/page_2" method="post" id="form_id">{% csrf_token %}
+    <form action="/page_2" method="post" id="form_id">{% csrf_token %}
+        <div class="row">
+            <div class="col-sm-5">
                 <div class="input-group">
-                    <span class="input-group-addon">File directory:</span>
-                    {% render_field form.file placeholder=form.file.label %}
+                    <span class="input-group-addon">File:</span>
+                    {% render_field form.file placeholder="File directory" %}
                 </div>
+            </div>
+            <div class="col-sm-3">
                 <div class="input-group">
-                    <span class="input-group-addon">Date from:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    {% render_field form.time_1 placeholder="Format: YYYY-M-D HH-MM-SS" %}
+                    <span class="input-group-addon">Date from:</span>
+                    {% render_field form.time_1 id="datepicker" placeholder="Format: YYYY-M-D" %}
                 </div>
+            </div>
+            <div class="col-sm-3">
                 <div class="input-group">
-                    <span class="input-group-addon">Date from:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    {% render_field form.time_2 placeholder="Format: YYYY-M-D HH-MM-SS" %}
+                    <span class="input-group-addon">Date to:</span>
+                    {% render_field form.time_2 id="datepicker-2" placeholder="Format: YYYY-M-D" %}
                 </div>
-                <br>
+            </div>
+            <div class="col-sm-1">
                 <input type="submit" value="Submit" class="btn center-block"/>
-            </form>
+            </div>
         </div>
-    </div>
+        <br>
+    </form>
     <!--{% render_field form.users placeholder="User" %}-->
     <table id="table_id" class="table table-striped table-bordered table-hover">
         <thead>

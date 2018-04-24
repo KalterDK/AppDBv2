@@ -8,30 +8,39 @@
 <div class="container">
     <h1>SEARCH BY USER</h1>
     <p>search by user | <a href="/page_2"> search by file</a></p><br>
-    <div class="row">
-        <div class="col-sm-4">
-            <form action="/page_1" method="post" id="form_id">{% csrf_token %}
+    <form action="/page_1" method="post" id="form_id">{% csrf_token %}
+        {{ formatedDate }}
+        <div class="row">
+            <div class="col-sm-2">
                 <div class="input-group">
-                    <span class="input-group-addon">Username:&nbsp;</span>
-                {% render_field form.user placeholder=form.user.label %}
+                    <span class="input-group-addon">User:</span>
+                    {% render_field form.user placeholder="Username" %}
                 </div>
+            </div>
+            <div class="col-sm-3">
                 <div class="input-group">
                     <span class="input-group-addon">Action type:</span>
-                {% render_field form.action placeholder=form.action.label class='form-control' %}
+                    {% render_field form.action placeholder=form.action.label class='form-control' %}
                 </div>
+            </div>
+            <div class="col-sm-3">
                 <div class="input-group">
-                    <span class="input-group-addon">Date from:&nbsp;&nbsp;</span>
-                {% render_field form.time_1 placeholder="Format: YYYY-M-D HH-MM-SS" %}
+                    <span class="input-group-addon">Date from:</span>
+                    {% render_field form.time_1 id="datepicker" placeholder="YYYY-M-D" %}
                 </div>
+            </div>
+            <div class="col-sm-3">
                 <div class="input-group">
-                    <span class="input-group-addon">Date to:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                {% render_field form.time_2 placeholder="Format: YYYY-M-D HH-MM-SS" %}
+                    <span class="input-group-addon">Date to:</span>
+                    {% render_field form.time_2 id="datepicker-2" placeholder="YYYY-M-D" %}
                 </div>
-                <br>
+            </div>
+            <div class="col-sm-1">
                 <input type="submit" value="Submit" class="btn center-block"/>
-            </form>
+            </div>
         </div>
-    </div>
+        <br>
+    </form>
     <!--{% render_field form.users placeholder="User" %}-->
     <table id="table_id" class="table table-striped table-bordered table-hover">
         <thead>
