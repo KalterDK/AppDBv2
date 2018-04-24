@@ -3,6 +3,9 @@ AppDBv2 - application for monitoring file changes (using the example ownCloud da
 Example of a database you can find in /Files/owncloud.sql
 Example of a local database configuration file in /Files/local_settings_db.py
 
+After the changes in the local_settings_db.py, you need to restart the container:
+docker restart appdbv2
+
 Request examples for Page 1 (search by user):
 1.	User:	ikam
 	Action:	file_created

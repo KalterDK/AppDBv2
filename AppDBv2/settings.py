@@ -65,7 +65,7 @@ WSGI_APPLICATION = 'AppDBv2.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 DATABASE_ROUTERS = ('AppDBv2.dbrouters.DBRouter',)
 
-DATABASES
+DATABASES = DATABASES
 
 
 # Password validation

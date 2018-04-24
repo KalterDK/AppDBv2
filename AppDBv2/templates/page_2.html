@@ -11,9 +11,18 @@
     <div class="row">
         <div class="col-sm-4">
             <form action="/page_2" method="post" id="form_id">{% csrf_token %}
-                {% render_field form.file placeholder=form.file.label %}
-                {% render_field form.time_1 placeholder="Format: YYYY-M-D HH-MM-SS" %}
-                {% render_field form.time_2 placeholder="Format: YYYY-M-D HH-MM-SS" %}
+                <div class="input-group">
+                    <span class="input-group-addon">File directory:</span>
+                    {% render_field form.file placeholder=form.file.label %}
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Date from:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    {% render_field form.time_1 placeholder="Format: YYYY-M-D HH-MM-SS" %}
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Date from:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    {% render_field form.time_2 placeholder="Format: YYYY-M-D HH-MM-SS" %}
+                </div>
                 <br>
                 <input type="submit" value="Submit" class="btn center-block"/>
             </form>

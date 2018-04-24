@@ -11,10 +11,22 @@
     <div class="row">
         <div class="col-sm-4">
             <form action="/page_1" method="post" id="form_id">{% csrf_token %}
+                <div class="input-group">
+                    <span class="input-group-addon">Username:&nbsp;</span>
                 {% render_field form.user placeholder=form.user.label %}
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Action type:</span>
                 {% render_field form.action placeholder=form.action.label class='form-control' %}
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Date from:&nbsp;&nbsp;</span>
                 {% render_field form.time_1 placeholder="Format: YYYY-M-D HH-MM-SS" %}
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Date to:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 {% render_field form.time_2 placeholder="Format: YYYY-M-D HH-MM-SS" %}
+                </div>
                 <br>
                 <input type="submit" value="Submit" class="btn center-block"/>
             </form>
